@@ -15,6 +15,7 @@ router.post("/signin", validationSignin, login);
 router.use(auth);
 router.use("/users", usersRoute);
 router.use("/movies", usersMovies);
+
 router.use(() => {
   throw new NotFoundError("Неверный адрес");
 });

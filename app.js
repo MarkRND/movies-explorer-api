@@ -8,16 +8,16 @@ const { requestLogger, errorLogger } = require("./middlwares/logger");
 const router = require("./routes");
 const GlobalError = require("./middlwares/GlobalError");
 const appLimiter = require("./settings/settingsLimiter");
-const { PORT, WEB_HOST, HOST, NODE_ENV } = require("./settings/settingsWeb")
+const { PORT, WEB_HOST, HOST, NODE_ENV } = require("./settings/settingsWeb");
 
 const app = express();
-mongoose.connect(NODE_ENV === 'production' ? HOST : WEB_HOST, {
+mongoose.connect(NODE_ENV === "production" ? HOST : WEB_HOST, {
   useNewUrlParser: true,
 });
 app.use(cors());
-app.get('/crash-test', () => {
+app.get("/crash-test", () => {
   setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
+    throw new Error("Сервер сейчас упадёт");
   }, 0);
 });
 app.use(requestLogger);
@@ -28,8 +28,6 @@ app.use(router);
 app.use(errorLogger);
 app.use(errors());
 app.use(GlobalError);
-
 app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(`Сервер запущен на port ${PORT}`);
 });
