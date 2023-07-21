@@ -12,7 +12,8 @@
 `npm run dev` — запускает сервер с hot-reload
 
 ## репозитоий
-https://
+
+https://github.com/MarkRND/movies-explorer-api
 
 IP <51.250.74.194>
-Backend <https://>
+Backend <https://api.upi.nomoredomains.xyz>
